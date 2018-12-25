@@ -7,11 +7,49 @@
 <body>
 
 
-<!-- 立即执行函数,而不是页面加载完再执行     -->
+<!-- 立即执行函数,而不是页面加载完再执行 ,就在此行执行    -->
 <script type="text/javascript">
     (function(s1,s2){
       document.write("====s1="+s1+"===s2="+s2+"====")
     }(1,2))
 </script>
+
+
+
+<!--下面这种写法也可以 -->
+<script type="text/javascript">
+    (function(s1,s2){
+        document.write("<hr/>====s1="+s1+"===s2="+s2+"====")
+    })(3,4)
+</script>
+
+
+
+
+<!--下面也可以 -->
+<script type="text/javascript">
+    foo=function(){
+        document.write("<hr/>立即执行函数11111")
+    }()
+</script>
+
+<!--下面是立即执行函数的原型 -->
+<script type="text/javascript">
+     foo=function(){
+        document.write("<hr/>立即执行函数11")
+    }
+    foo()
+</script>
+
+
+
+<!--下面这种写法不可以 -->
+<script type="text/javascript">
+    (function(){
+        document.write("<hr/>立即执行函数0000错误写法")
+    })
+</script>
+
+
 </body>
 </html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>TestJsPrototype</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Person(name) {
+            //对象不公用
+            this.name=name
+        }
+        //添加一个share数组//对象公用
+        Person.prototype.share=[];
+        var person=new Person("han");
+        person.share.push(1)
+        person.share.push(2)
+        document.write("<hr/>"+person.share+"")
+        document.write("<hr/>"+person.name+"")
+        var person1=new Person("han1");
+        document.write("<hr/>"+person1.share+"")
+        document.write("<hr/>"+person1.name+"")
+        document.write("<hr/>")
+    </script>
+    <script type="text/javascript">
+        var f22=function (a,b,c){
+            this.a=a
+            this.b=b
+            this.c=c
+
+        }
+
+        f22.prototype={
+            init1:function (q) {
+                this.a=q
+                document.write("<hr/>￥￥￥￥￥"+this.a+"￥￥￥￥")
+            }
+
+        }
+
+
+        var f2201=new f22(1,2,3);
+        var init1 = f2201.init1(333);
+
+        console.log(f22);
+        window.f22=f22
+    </script>
+
+    <script type="text/javascript">
+        function f3() {
+             var a=1;
+        }
+        var f301=new f3();
+        f301.a=3;
+        var f302=new f3();
+        console.log(f301.a)
+        console.log(f302.a)
+
+        f3.prototype.a1=[]
+        var f303=new f3()
+        f303.a1.push(1)
+        f303.a1.push(2)
+        var f304=new f3()
+        console.log(f303.a1)//[1,2]
+        console.log(f304.a1)//[1,2]
+
+        f3.prototype.aaa=1111
+
+        var f307=new f3();
+        f307.aaa=9999
+        var f308=new f3()
+        alert(f307.aaa)//9999
+        alert(f308.aaa)//1111
+
+        //结论,用prototype设置对象函数的话共用, 设置属性不公用
+
+
+    </script>
+</body>
+</html>

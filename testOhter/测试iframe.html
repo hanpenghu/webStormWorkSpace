@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>测试iframe</title>
+    <style type="text/css">
+        #div1{
+            background-color: #bce8f1;
+            border:2px solid black;
+            margin:auto;
+            padding :5px;
+            width:400px;
+            height:400px;
+        }
+    </style>
+    <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div id="div0">
+    <a href="javascript:f();">生成iframe</a><br/>
+    <a href="javascript:f1();">生成iframe</a>
+</div>
+<div id="div1">
+
+</div>
+<script type="text/javascript">
+    function f2() {
+        return $('#div1').html()
+    }
+    function f() {
+        var yuanlai=f2()
+        var iframe='<iframe src="http://www.baidu.com">文本</iframe>'
+        var iframe1=yuanlai+'<br/>'+iframe
+        $('#div1').html(iframe1)
+    }
+
+    function f1() {
+        var yuanlai=f2()
+        var iframe='<iframe src="https://www.sogou.com">文本</iframe>'
+        var iframe1=yuanlai+'<br/>'+iframe
+        $('#div1').html(iframe1)
+    }
+</script>
+</body>
+</html>
+
